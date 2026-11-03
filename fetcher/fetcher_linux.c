@@ -58,7 +58,7 @@ int getname(const struct dirent *entry, char *out, size_t out_size) {
   int res = snprintf(filepath, sizeof(filepath), "%s/%s/name", DEV_PATH,
                      entry->d_name);
   if (res < 0 || (size_t)res >= sizeof(filepath)) {
-    fprintf(stderr, "Path truncated or encoding error\n");
+    perror("Path error");
     return -1;
   }
 
@@ -80,6 +80,7 @@ int getname(const struct dirent *entry, char *out, size_t out_size) {
 
 int fetcher_list() {
   DIR *dir = opendir(DEV_PATH);
+
   if (!dir) {
     perror("opendir");
     return FETCHER_ERROR;

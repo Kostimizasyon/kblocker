@@ -13,7 +13,7 @@ build_inhibited_path(char *out, size_t size, const char *dev_path)
 	int n = snprintf(out, size, "%s/inhibited", dev_path);
 
 	if (n < 0 || (size_t)n >= size) {
-		fprintf(stderr, "path too long: %s\n", dev_path);
+    		perror("Path too long");
 		return -1;
 	}
 	return 0;

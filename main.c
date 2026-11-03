@@ -55,6 +55,7 @@ main(int argc, char** argv) {
 
 			if (res != FETCHER_SUCESS) {
 				puts("Device was unable to be found, use the -a flag to list all devices.");
+				return -1;
 			}
 
 			if (res_temp == F_LOCK) {
@@ -62,6 +63,11 @@ main(int argc, char** argv) {
 				res = locker_lockdevice(device_name);
 
 				if (res != LOCKER_SUCESS) {
+					if (res == LOCKER_LOCKED) {
+						puts("This device is already locked");
+						return -1;
+					}
+					puts("Unable to lock device.");
 					return -1;
 				}
 			}
@@ -73,6 +79,7 @@ main(int argc, char** argv) {
 						puts("This device is not locked");
 						return -1;
 					}
+					puts("Unable to lock device.");
 					return -1;
 				}
 			}
