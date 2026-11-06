@@ -89,7 +89,7 @@ int fetcher_list() {
   const int w_idx = 3, w_name = 32, w_dev = 14;
   struct dirent *entry;
 
-  printf("\033[94mSearching keyboards...\033[0m\n\n");
+  // printf("\033[94mSearching keyboards...\033[0m\n");
 
   printf("┌");
   for (int i = 0; i < w_idx + 2; i++) printf("─");
@@ -156,7 +156,7 @@ int fetcher_list() {
   for (int i = 0; i < w_dev + 2; i++) printf("─");
   printf("┘\n");
 
-  printf("\033[94m%d keyboard(s) found\033[0m\n", counter);
+  // printf("\033[94m%d keyboard(s) found\033[0m\n", counter);
 
   if (closedir(dir) == -1) {
     perror("closedir");

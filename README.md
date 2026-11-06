@@ -2,6 +2,8 @@
 
 A simple CLI tool to block the usage of the user's laptop keyboard (mainly) or any specific keyboard input device.
 
+USE AT YOUR OWN RISK DONT BE A DUMB DUMB AND LOCK YOURSELF OUT
+
 > **Note:** `kblocker` requires root privileges (`sudo`) to function.
 
 ## USAGE

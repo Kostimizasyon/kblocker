@@ -12,7 +12,10 @@ main(int argc, char** argv) {
 	int res_temp;
 	int res;
 
-	if (argc == 2) {
+	if (argc == 1) {
+		print_help();
+	}
+	else if (argc == 2) {
 
 		res = match_arg(argv[1]);
 
@@ -70,6 +73,7 @@ main(int argc, char** argv) {
 					puts("Unable to lock device.");
 					return -1;
 				}
+				puts("Device has been locked!");
 			}
 
 			else if (res_temp == F_UNLOCK) {
@@ -82,6 +86,7 @@ main(int argc, char** argv) {
 					puts("Unable to lock device.");
 					return -1;
 				}
+				puts("Device has been unlocked!");
 			}
 
 		}
